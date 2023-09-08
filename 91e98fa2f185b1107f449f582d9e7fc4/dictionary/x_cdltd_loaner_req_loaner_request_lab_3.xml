@@ -1,3 +1,3 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
-    <element label="Loaner Request Lab 3" max_length="40" name="x_cdltd_loaner_req_loaner_request_lab_3" type="collection"/>
+    <element label="Loaner Request Lab 3" max_length="40" name="x_cdltd_loaner_req_loaner_request_lab_3" sizeclass="0" type="collection"/>
 </database>
