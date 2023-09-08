@@ -1,3 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
-    <element extends="task" label="Loaner Request" max_length="40" name="x_cdltd_loaner_req_loaner_request" sizeclass="0" type="collection"/>
+    <element extends="task" label="Loaner Request" max_length="40" name="x_cdltd_loaner_req_loaner_request" sizeclass="7" type="collection">
+        <element attributes="encode_utf8=false" dependent="closed_at" dependent_on_field="closed_at" label="Closed" max_length="32" name="closed" reference="stage_state" type="reference" use_dependent_field="true"/>
+        <element attributes="edge_encryption_enabled=true" choice="3" default="sc" label="Depot" max_length="40" name="depot" type="string">
+            <choice>
+                <element inactive_on_update="false" label="New York" sequence="0" value="[ny]"/>
+                <element inactive_on_update="false" label="London" sequence="1" value="[london]"/>
+                <element inactive_on_update="false" label="Buenos Aires" sequence="2" value="[ba]"/>
+                <element inactive_on_update="false" label="Santa Clara" sequence="3" value="[sc]"/>
+                <element inactive_on_update="false" label="Singapore" sequence="4" value="[singapore]"/>
+                <element inactive_on_update="false" label="Sydney" sequence="5" value="[sydney]"/>
+                <element inactive_on_update="false" label="Other" sequence="6" value="[other]"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" choice="3" default="cmdb_ci_computer" label="Device type" max_length="40" name="device_type" type="string">
+            <choice>
+                <element inactive_on_update="false" label="Mobile Phone" sequence="0" value="cmdb_ci_mobile_device"/>
+                <element inactive_on_update="false" label="Laptop" sequence="1" value="cmdb_ci_computer"/>
+                <element inactive_on_update="false" label="Projector" sequence="2" value="cmdb_ci_projector"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" label="End date" mandatory="true" max_length="40" name="end_date" type="glide_date_time"/>
+        <element attributes="edge_encryption_enabled=true" choice="3" dependent="item_type" dependent_on_field="item_type" label="Item type" max_length="40" name="item_type" type="string" use_dependent_field="true">
+            <choice>
+                <element inactive="true" inactive_on_update="true" label="Choice 1" sequence="0" value="Choice 1"/>
+                <element inactive_on_update="false" label="Laptop" sequence="0" value="cmdb_ci_computer"/>
+                <element inactive="true" inactive_on_update="true" label="Choice 2" sequence="1" value="Choice 2"/>
+                <element inactive_on_update="false" label="Mobile Phone" sequence="1" value="cmdb_ci_mobile_device"/>
+                <element inactive="true" inactive_on_update="true" label="Choice 3" sequence="2" value="Choice 3"/>
+                <element inactive_on_update="false" label="Projector" sequence="2" value="cmdb_ci_projector"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" label="Location to be used" max_length="40" name="location_to_be_used" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Other" max_length="40" name="other" type="string"/>
+        <element attributes="encode_utf8=false" label="Requested for" mandatory="true" max_length="32" name="requested_for" reference="sys_user" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" label="Start date" mandatory="true" max_length="40" name="start_date" type="glide_date_time"/>
+        <element attributes="encode_utf8=false" dependent="sys_updated_on" dependent_on_field="sys_updated_on" label="Updated" max_length="32" name="updated" reference="stage_state" type="reference" use_dependent_field="true"/>
+        <element attributes="encode_utf8=false" dependent="sys_updated_by" dependent_on_field="sys_updated_by" label="Updated by" max_length="32" name="updated_by" reference="stage_state" type="reference" use_dependent_field="true"/>
+        <element attributes="encode_utf8=false" dependent="opened_at" dependent_on_field="opened_at" label="Opened" max_length="32" name="u_reference_14" reference="stage_state" type="reference" use_dependent_field="true"/>
+    </element>
 </database>
